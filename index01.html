@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="100px" height="120px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+        this.perimeterRectangle = function () {
+            return 2 * (this.width + this.height);
+        };
+        this.areaRectangle = function () {
+            return this.width * this.height;
+        };
+        this.createRectangle = function () {
+            let ctx = document.getElementById("myCanvas");
+            let pen = ctx.getContext("2d");
+            let x = Math.floor((Math.random() * 50) + 1);
+            let y = Math.floor((Math.random() * 60) + 1);
+            pen.fillRect(x, y, width, height);
+        }
+    }
+
+    let a = Math.random() * window.innerWidth;
+    let b = Math.random() * window.innerHeight;
+    let rec = new Rectangle(a, b);
+    rec.createRectangle();
+    alert("Width is: " + a + " and Height is:  " + b + " so Perimeter of Rectangle is: " + rec.perimeterRectangle() +
+        " and Area of Rectangle " + " is: " + rec.areaRectangle());
+</script>
+</body>
+</html>
